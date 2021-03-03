@@ -56,7 +56,7 @@ eval("var IDX=256, HEX=[], SIZE=256, BUFFER;\r\nwhile (IDX--) HEX[IDX] = (IDX + 
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var peerjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! peerjs */ \"./node_modules/peerjs/dist/peerjs.min.js\");\n/* harmony import */ var peerjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(peerjs__WEBPACK_IMPORTED_MODULE_0__);\n\r\nconst {uid} = __webpack_require__(/*! uid */ \"./node_modules/uid/dist/index.js\");\r\nconst $ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\r\n\r\nfunction myPeerId(){\r\n    const id = uid(10);\r\n    $('#peerId').append(id)\r\n    return id;\r\n}\r\nconst config = {}\r\n\r\nconst peer = new (peerjs__WEBPACK_IMPORTED_MODULE_0___default())(myPeerId());\n\n//# sourceURL=webpack://tieuluan3/./src/app.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var peerjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! peerjs */ \"./node_modules/peerjs/dist/peerjs.min.js\");\n/* harmony import */ var peerjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(peerjs__WEBPACK_IMPORTED_MODULE_0__);\n\r\nconst {uid} = __webpack_require__(/*! uid */ \"./node_modules/uid/dist/index.js\");\r\nconst $ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\r\n\r\nfunction myPeerId(){\r\n    const id = uid(10);\r\n    $('#peerId').append(id)\r\n    return id;\r\n}\r\n\r\n// const peer = new Peer(myPeerId());\r\nconsole.log(myPeerId())\n\n//# sourceURL=webpack://tieuluan3/./src/app.js?");
 
 /***/ })
 

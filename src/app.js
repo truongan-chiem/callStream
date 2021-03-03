@@ -7,6 +7,6 @@ function myPeerId(){
     $('#peerId').append(id)
     return id;
 }
-const config = {}
 
-const peer = new Peer(myPeerId());
+// const peer = new Peer(myPeerId());
+console.log(myPeerId())
