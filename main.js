@@ -56,7 +56,27 @@ eval("var IDX=256, HEX=[], SIZE=256, BUFFER;\r\nwhile (IDX--) HEX[IDX] = (IDX + 
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var peerjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! peerjs */ \"./node_modules/peerjs/dist/peerjs.min.js\");\n/* harmony import */ var peerjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(peerjs__WEBPACK_IMPORTED_MODULE_0__);\n\r\nconst {uid} = __webpack_require__(/*! uid */ \"./node_modules/uid/dist/index.js\");\r\nconst $ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\r\n\r\nfunction myPeerId(){\r\n    const id = uid(10);\r\n    $('#peerId').append(id)\r\n    return id;\r\n}\r\n\r\n// const peer = new Peer(myPeerId());\r\nconsole.log(myPeerId())\n\n//# sourceURL=webpack://tieuluan3/./src/app.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var peerjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! peerjs */ \"./node_modules/peerjs/dist/peerjs.min.js\");\n/* harmony import */ var peerjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(peerjs__WEBPACK_IMPORTED_MODULE_0__);\n\r\nconst {uid} = __webpack_require__(/*! uid */ \"./node_modules/uid/dist/index.js\");\r\nconst $ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\r\nconst openStream = __webpack_require__(/*! ./openStream */ \"./src/openStream.js\");\r\nconst playVideo = __webpack_require__(/*! ./playVideo */ \"./src/playVideo.js\");\r\n\r\nconst config ={host: 'streampeerjs.herokuapp.com',port: 443,secure:true,key:'peerjs'}\r\n\r\nfunction getPeerId(){\r\n    const id = uid(10);\r\n    $('#peerId').append(id)\r\n    return id;\r\n}\r\n\r\nconst peer = new (peerjs__WEBPACK_IMPORTED_MODULE_0___default())(getPeerId(),config);\r\n\r\n$('#btnCall').click(()=>{\r\n   const friendId = $('#txtFriendPeerId').val();\r\n    openStream(stream =>{\r\n        playVideo(stream,'myvideo');\r\n        const call =peer.call(friendId,stream);\r\n        call.on('stream', remoteStream => playVideo(remoteStream,'othervideo'))\r\n    })\r\n   \r\n})\r\npeer.on('call', (call) => {\r\n    openStream(stream =>{\r\n        playVideo(stream,'myvideo');\r\n        call.answer(stream);\r\n        call.on('stream', remoteStream => playVideo(remoteStream,'othervideo'))\r\n    })\r\n  });\n\n//# sourceURL=webpack://tieuluan3/./src/app.js?");
+
+/***/ }),
+
+/***/ "./src/openStream.js":
+/*!***************************!*\
+  !*** ./src/openStream.js ***!
+  \***************************/
+/***/ ((module) => {
+
+eval("function openCamera(cb) {\r\n    navigator.mediaDevices.getUserMedia({ audio: false, video: true })\r\n      .then((stream) => {\r\n          cb(stream)\r\n          })\r\n      .catch((err) => {\r\n        console.log(err);\r\n      });\r\n  }\r\n  module.exports = openCamera;\r\n  \n\n//# sourceURL=webpack://tieuluan3/./src/openStream.js?");
+
+/***/ }),
+
+/***/ "./src/playVideo.js":
+/*!**************************!*\
+  !*** ./src/playVideo.js ***!
+  \**************************/
+/***/ ((module) => {
+
+eval("function playVideo(stream,idVideo){\r\n    const video = document.getElementById(idVideo)\r\n    video.srcObject = stream\r\n    video.onloadedmetadata = (e) => {\r\n    video.play()\r\n    }\r\n}\r\nmodule.exports = playVideo\r\n\n\n//# sourceURL=webpack://tieuluan3/./src/playVideo.js?");
 
 /***/ })
 
