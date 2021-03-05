@@ -66,7 +66,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var peer
   \***************************/
 /***/ ((module) => {
 
-eval("function openCamera(cb) {\r\n    navigator.mediaDevices.getUserMedia({ audio: false, video: true })\r\n      .then((stream) => {\r\n          cb(stream)\r\n          })\r\n      .catch((err) => {\r\n        console.log(err);\r\n      });\r\n  }\r\n  module.exports = openCamera;\r\n  \n\n//# sourceURL=webpack://tieuluan3/./src/openStream.js?");
+eval("function openCamera(cb) {\r\n    navigator.mediaDevices.getUserMedia({ audio: true, video: true })\r\n      .then((stream) => {\r\n          cb(stream)\r\n          })\r\n      .catch((err) => {\r\n        console.log(err);\r\n      });\r\n  }\r\n  module.exports = openCamera;\r\n  \n\n//# sourceURL=webpack://tieuluan3/./src/openStream.js?");
 
 /***/ }),
 
