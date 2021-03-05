@@ -1,5 +1,5 @@
 function openCamera(cb) {
-    navigator.mediaDevices.getUserMedia({ audio: true, video: true })
+    navigator.mediaDevices.getUserMedia({ audio: false, video: true })
       .then((stream) => {
           cb(stream)
           })
