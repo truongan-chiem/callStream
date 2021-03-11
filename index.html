@@ -1,22 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web-RTC</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1 id="peerId">Peer ID:</h1>
-    <video id="myvideo" controls width="300px"></video>
-    <video id="othervideo" controls width="300px"></video>
-    <br>
-    <br>
-   
-    <input type="text" id="txtFriendPeerId" placeholder="Your friend's ID!">
-    <br>
-    <br>
-    <button id="btnCall">Call</button>
+    <header class="header">Web - RTC</header>
+    <div class="body__container">
+    <div class="container">
+        <div class="flex__ID">
+            <h4 id="peerId">Your ID:</h4>
+            <div class="btn__call">
+                <input type="text" id="txtFriendPeerId" placeholder="Your friend's ID!">
+                <button id="btnCall">Call</button>
+            </div>
+        </div>
+        <div class="video_container">
+            <video id="myvideo" controls></video>
+            <video id="othervideo" controls></video>
+        </div>
+        <br>
+        <br>
+       
+    </div>
+</div>
 </body>
 <script src="main.js"></script>
+
 </html>

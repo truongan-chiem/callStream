@@ -16,12 +16,17 @@ const peer = new Peer(getPeerId(),config);
 
 $('#btnCall').click(()=>{
    const friendId = $('#txtFriendPeerId').val();
+   if(friendId===''){
+        alert("Vui lòng điền ID người muốn gọi!")
+        $('#txtFriendPeerId').focus();
+   }
+   else{
     openStream(stream =>{
         playVideo(stream,'myvideo');
         const call =peer.call(friendId,stream);
         call.on('stream', remoteStream => playVideo(remoteStream,'othervideo'))
     })
-   
+    }
 })
 peer.on('call', (call) => {
     openStream(stream =>{
